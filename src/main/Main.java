@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private static Scene mainScene;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         ScrollPane root = FXMLLoader.load(getClass().getResource("../gui/MainView.fxml"));
@@ -15,9 +17,14 @@ public class Main extends Application {
         root.setFitToHeight(true);
         root.setFitToWidth(true);
 
+        mainScene = new Scene(root, 720, 576);
         primaryStage.setTitle("Management");
-        primaryStage.setScene(new Scene(root, 720, 576));
+        primaryStage.setScene(mainScene);
         primaryStage.show();
+    }
+
+    public static Scene getMainScene () {
+        return mainScene;
     }
 
 
