@@ -1,7 +1,9 @@
 package gui;
 
+import gui.util.Alerts;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 
 import java.net.URL;
@@ -42,7 +44,10 @@ public class MainViewControler implements Initializable {
 
     @FXML
     public void onMenuHelpAboutAction(){
-        System.out.println("Action About");
+        Alerts.showAlert("Sobre",
+                null,
+                "Text",
+                Alert.AlertType.INFORMATION);
     }
 
     @Override
