@@ -1,18 +1,26 @@
 package gui;
 
+import gui.util.Alerts;
+import gui.util.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main.Main;
 import model.entities.Department;
 import model.services.DepartmentService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -36,8 +44,8 @@ public class DepartmentNewController implements Initializable {
     }
 
     @FXML
-    public void onButtonCreateAction() {
-        System.out.print("Button");
+    public void onButtonCreateAction(ActionEvent event) {
+        createDialogForm("../gui/DepartmentForm.fxml", Utils.currentStage(event));
     }
 
     @Override
@@ -62,5 +70,25 @@ public class DepartmentNewController implements Initializable {
         System.out.print(list);
         observableList = FXCollections.observableList(list);
         tableViewDepartment.setItems(observableList);
+    }
+
+    private void createDialogForm(String path, Stage parentStage){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Novo Departamento");
+            dialogStage.setScene(new Scene(loader.load()));
+            dialogStage.setResizable(false);
+            dialogStage.initOwner(parentStage);
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.showAndWait();
+
+        } catch (IOException e){
+            Alerts.showAlert("Erro de entrada e saida",
+                    "Erro ao carregar a tela",
+                    e.getMessage(),
+                    Alert.AlertType.ERROR);
+        }
     }
 }
