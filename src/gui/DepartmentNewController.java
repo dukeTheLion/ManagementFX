@@ -59,6 +59,7 @@ public class DepartmentNewController implements Initializable {
         }
 
         List<Department> list = service.findAll();
+        System.out.print(list);
         observableList = FXCollections.observableList(list);
         tableViewDepartment.setItems(observableList);
     }

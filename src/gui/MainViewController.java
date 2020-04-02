@@ -12,6 +12,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import main.Main;
 import model.services.DepartmentService;
+import model.services.EmployeeService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,7 +34,9 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuNewEmployeeAction(){
-        loadView("../gui/EmployeeNew.fxml", (x) -> {});
+        loadView("../gui/EmployeeNew.fxml", (EmployeeNewController controller) -> {
+            controller.setEmployeeService(new EmployeeService());
+            controller.updateTableView(); });
     }
 
     @FXML
