@@ -11,10 +11,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import main.Main;
+import model.services.DepartmentService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 public class MainViewController implements Initializable {
 
@@ -31,12 +33,14 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuNewEmployeeAction(){
-        loadView("../gui/EmployeeNew.fxml");
+        loadView("../gui/EmployeeNew.fxml", (x) -> {});
     }
 
     @FXML
     public void onMenuNewDepartmentAction(){
-        loadView("../gui/DepartmentNew.fxml");
+        loadView("../gui/DepartmentNew.fxml", (DepartmentNewController controller) -> {
+            controller.setDepartmentService(new DepartmentService());
+            controller.updateTableView(); });
     }
 
     @FXML
@@ -62,9 +66,10 @@ public class MainViewController implements Initializable {
 
     }
 
-    private synchronized void loadView(String path){
+    private synchronized <T> void loadView (String path, Consumer<T> init){
         try {
-            VBox newVBox = FXMLLoader.load(getClass().getResource(path));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            VBox newVBox = loader.load();
 
             Scene mainScene = Main.getMainScene();
             VBox mainVBox = (VBox) ((ScrollPane)mainScene.getRoot()).getContent();
@@ -73,6 +78,10 @@ public class MainViewController implements Initializable {
             mainVBox.getChildren().clear();
             mainVBox.getChildren().add(mainMenu);
             mainVBox.getChildren().addAll(newVBox.getChildren());
+
+            T controller = loader.getController();
+            init.accept(controller);
+
         } catch (IOException e) {
             Alerts.showAlert("Erro de entrada e saida",
                     "Erro ao carregar a tela",

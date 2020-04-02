@@ -1,4 +1,4 @@
-package model.dao.impl;
+package model.dao.implementation;
 
 import datebase.DB;
 import datebase.DBException;

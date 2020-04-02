@@ -20,7 +20,7 @@
             <TableColumn prefWidth="75.0" text="Nome" />
             <TableColumn prefWidth="150.0" text="Sobrenome" />
             <TableColumn prefWidth="75.0" text="CPF" />
-            <TableColumn prefWidth="120.0" text="e-mail" />
+            <TableColumn prefWidth="100.0" text="e-mail" />
             <TableColumn prefWidth="150.0" text="Salário p/ hora" />
             <TableColumn prefWidth="200.0" text="Carga horária semanal" />
             <TableColumn prefWidth="100.0" text="Departamento" />

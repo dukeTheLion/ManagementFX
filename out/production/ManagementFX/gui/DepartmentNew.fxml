@@ -16,7 +16,7 @@
         <TableView fx:id="tableViewDepartment" prefHeight="-Infinity" prefWidth="200.0">
             <columns>
                 <TableColumn fx:id="tableColumnID" prefWidth="50.0" text="ID" />
-                <TableColumn fx:id="tableColumnName" prefWidth="100.0" text="Departamento" />
+                <TableColumn fx:id="tableColumnName" prefWidth="150.0" text="Departamento" />
             </columns>
         </TableView>
     </children>
