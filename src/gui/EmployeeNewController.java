@@ -81,7 +81,6 @@ public class EmployeeNewController implements Initializable {
         }
 
         List<Employee> list = service.findAll();
-        System.out.print(list);
         observableList = FXCollections.observableList(list);
         tableViewEmployee.setItems(observableList);
     }

@@ -50,12 +50,12 @@
             </Label>
             <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="buttonCreate" mnemonicParsing="false" text="Adicionar">
+                  <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreate" text="Adicionar">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buttonCancel" contentDisplay="CENTER" mnemonicParsing="false" text="Cancel">
+                  <Button fx:id="buttonCancel" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onButtonCancel" text="Cancel">
                      <HBox.margin>
                         <Insets left="30.0" top="10.0" />
                      </HBox.margin>

@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main.Main;
@@ -45,7 +46,7 @@ public class DepartmentNewController implements Initializable {
 
     @FXML
     public void onButtonCreateAction(ActionEvent event) {
-        createDialogForm("../gui/DepartmentForm.fxml", Utils.currentStage(event));
+        createDialogForm(new Department(), "../gui/DepartmentForm.fxml", Utils.currentStage(event));
     }
 
     @Override
@@ -67,18 +68,23 @@ public class DepartmentNewController implements Initializable {
         }
 
         List<Department> list = service.findAll();
-        System.out.print(list);
         observableList = FXCollections.observableList(list);
         tableViewDepartment.setItems(observableList);
     }
 
-    private void createDialogForm(String path, Stage parentStage){
+    private void createDialogForm(Department department, String path, Stage parentStage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            Pane pane = loader.load();
+
+            DepartmentFormController controller = loader.getController();
+            controller.setDepartment(department);
+            controller.setService(new DepartmentService());
+            controller.updateFormData();
 
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Novo Departamento");
-            dialogStage.setScene(new Scene(loader.load()));
+            dialogStage.setScene(new Scene(pane));
             dialogStage.setResizable(false);
             dialogStage.initOwner(parentStage);
             dialogStage.initModality(Modality.WINDOW_MODAL);

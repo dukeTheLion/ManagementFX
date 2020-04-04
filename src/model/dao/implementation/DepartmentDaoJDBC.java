@@ -25,11 +25,10 @@ public class DepartmentDaoJDBC implements DepartmentDAO {
 
         try {
             st = conn.prepareStatement("INSERT INTO `DataBase`.`Department` "
-                    + "(ID, DepName) "
-                    + "values (?, ?)");
+                    + "(DepName) "
+                    + "values (?)");
 
-            st.setLong(1, obj.getId());
-            st.setString(2, obj.getName());
+            st.setString(1, obj.getName());
 
             st.executeUpdate();
 

@@ -7,8 +7,14 @@ import model.entities.Department;
 import java.util.List;
 
 public class DepartmentService {
+    DepartmentDAO dao = DaoFactory.newDepartmentDAO();
+
     public List<Department> findAll() {
-        DepartmentDAO department = DaoFactory.newDepartmentDAO();
-        return department.findAll();
+        return dao.findAll();
+    }
+
+    public void setDepartmentService(Department department){
+        if (department.getId() == null) dao.insert(department);
+        else dao.update(department);
     }
 }
