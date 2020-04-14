@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="RXTX">
+    <CLASSES>
+      <root url="file:///Library/Java/Extensions/RXTX" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file:///Library/Java/Extensions/RXTX" recursive="false" />
+  </library>
+</component>

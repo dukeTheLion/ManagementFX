@@ -1,0 +1,29 @@
+.root{
+    -fx-background-color: #212121;
+}
+
+.label{
+    -fx-text-fill: #CCCCCC;
+}
+
+.text-field{
+    -fx-background-color: #212121;
+    -fx-border-color: #CCCCCC;
+    -fx-text-fill: white;
+}
+
+.text-field:focused{
+    -fx-background-color: #3ABFF0;
+    -fx-border-color: #CCCCCC;
+    -fx-text-fill: white;
+}
+
+.button{
+    -fx-background-color: #212121;
+    -fx-border-color: #CCCCCC;
+    -fx-text-fill: white;
+}
+.button:hover{
+    -fx-background-color: #f08157;
+    -fx-border-color: #CCCCCC;
+}

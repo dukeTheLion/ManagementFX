@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="200.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DepartmentFormController">
+<AnchorPane prefHeight="200.0" prefWidth="550.0" stylesheets="@DepartmentFormCSS/DepartmentForm.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DepartmentFormController">
    <children>
       <GridPane prefHeight="119.0" prefWidth="369.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
         <columnConstraints>
@@ -25,7 +25,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Id" GridPane.halignment="RIGHT">
+            <Label stylesheets="@DepartmentFormCSS/DepartmentForm.css" text="Id" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -33,7 +33,7 @@
                   <Font name="Arial Black" size="13.0" />
                </font>
             </Label>
-            <Label text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Label stylesheets="@DepartmentFormCSS/DepartmentForm.css" text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -41,8 +41,11 @@
                   <Font name="Arial Black" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="textId" disable="true" GridPane.columnIndex="1" />
-            <TextField fx:id="textName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textId" stylesheets="@DepartmentFormCSS/DepartmentForm.css" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></TextField>
+            <TextField fx:id="textName" stylesheets="@DepartmentFormCSS/DepartmentForm.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label fx:id="labelError" textFill="RED" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <padding>
                   <Insets left="20.0" />
@@ -50,14 +53,14 @@
             </Label>
             <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreate" text="Adicionar">
+                  <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreate" stylesheets="@DepartmentFormCSS/ButtonAdd.css" text="Adicionar">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buttonCancel" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onButtonCancel" text="Cancel">
+                  <Button fx:id="buttonCancel" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onButtonCancel" stylesheets="@DepartmentFormCSS/DepartmentForm.css" text="Cancel">
                      <HBox.margin>
-                        <Insets left="30.0" top="10.0" />
+                        <Insets left="40.0" top="10.0" />
                      </HBox.margin>
                   </Button>
                </children>

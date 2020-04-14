@@ -1,0 +1,29 @@
+.scroll-pane .viewport{
+    -fx-background-color: linear-gradient(to bottom, black, #212121);
+}
+
+.menu-bar{
+    -fx-background-color: #212121;
+}
+
+.menu-bar .label{
+    -fx-text-fill: white;
+}
+
+.menu-button:hover {
+    -fx-background-color: #3ABFF0;
+}
+
+.context-menu {
+    -fx-padding: 0;
+}
+
+.menu-item{
+    -fx-background-color: #212121;
+    -fx-text-fill: #CCCCCC;
+}
+
+.menu-item:hover {
+    -fx-background-color: #3ABFF0;
+    -fx-text-fill: white;
+}
