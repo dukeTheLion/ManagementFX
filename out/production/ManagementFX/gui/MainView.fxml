@@ -12,7 +12,7 @@
          <children>
             <MenuBar stylesheets="@MainViewCSS/MainView.css">
               <menus>
-                <Menu mnemonicParsing="false" text="Novo">
+                <Menu mnemonicParsing="false" text="Gerenciar">
                   <items>
                     <MenuItem fx:id="menuNewEmployee" mnemonicParsing="false" onAction="#onMenuNewEmployeeAction" text="Funcionário" />
                         <MenuItem fx:id="menuNewDepartment" mnemonicParsing="false" onAction="#onMenuNewDepartmentAction" text="Departamento" />

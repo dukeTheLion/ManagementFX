@@ -12,7 +12,7 @@
         <ToolBar prefHeight="40.0" prefWidth="200.0" stylesheets="@DepartmentNewCSS/DepartmentNew.css">
             <items>
                 <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreateAction" stylesheets="@DepartmentNewCSS/DepartmentNew.css" text="Cadastrar ou Atualizar" />
-            <Button mnemonicParsing="false" stylesheets="@DepartmentNewCSS/ButtonDelet.css" text="Deletar">
+            <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#onButtonDeleteAction" stylesheets="@DepartmentNewCSS/ButtonDelete.css" text="Deletar">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

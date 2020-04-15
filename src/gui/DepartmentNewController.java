@@ -39,6 +39,8 @@ public class DepartmentNewController implements Initializable {
     private TableColumn<Department, String> tableColumnName;
     @FXML
     private Button buttonCreate;
+    @FXML
+    private Button buttonDelete;
 
     public void setDepartmentService(DepartmentService service) {
         this.service = service;
@@ -47,6 +49,11 @@ public class DepartmentNewController implements Initializable {
     @FXML
     public void onButtonCreateAction(ActionEvent event) {
         createDialogForm(new Department(), "../gui/DepartmentForm.fxml", Utils.currentStage(event));
+    }
+
+    @FXML
+    public void onButtonDeleteAction(){
+        System.out.print("Button");
     }
 
     @Override

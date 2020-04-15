@@ -26,6 +26,9 @@ public class EmployeeNewController implements Initializable {
     @FXML
     private Button buttonCreate;
     @FXML
+    private Button buttonDelete;
+
+    @FXML
     private TableView<Employee> tableViewEmployee;
     @FXML
     private TableColumn<Employee, Long> tableColumnId;
@@ -52,6 +55,11 @@ public class EmployeeNewController implements Initializable {
 
     @FXML
     public void onButtonCreateAction(){
+        System.out.print("Button");
+    }
+
+    @FXML
+    public void onButtonDeleteAction(){
         System.out.print("Button");
     }
 
