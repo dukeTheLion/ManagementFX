@@ -41,7 +41,7 @@
                   <Font name="Arial Black" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="textId" stylesheets="@DepartmentFormCSS/DepartmentForm.css" GridPane.columnIndex="1">
+            <TextField fx:id="textId" promptText="Opcional" stylesheets="@DepartmentFormCSS/DepartmentForm.css" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></TextField>
@@ -53,14 +53,14 @@
             </Label>
             <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreate" stylesheets="@DepartmentFormCSS/ButtonAdd.css" text="Adicionar">
+                  <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreate" stylesheets="@DepartmentFormCSS/ButtonAdd.css" text="Adicionar ou Atualizar">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="buttonCancel" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onButtonCancel" stylesheets="@DepartmentFormCSS/DepartmentForm.css" text="Cancel">
                      <HBox.margin>
-                        <Insets left="40.0" top="10.0" />
+                        <Insets left="49.0" top="10.0" />
                      </HBox.margin>
                   </Button>
                </children>

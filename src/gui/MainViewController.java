@@ -26,10 +26,6 @@ public class MainViewController implements Initializable {
     @FXML
     private MenuItem menuNewDepartment;
     @FXML
-    private MenuItem menuDeleteEmployee;
-    @FXML
-    private MenuItem menuDeleteDepartment;
-    @FXML
     private MenuItem menuItemAbout;
 
     @FXML
@@ -44,16 +40,6 @@ public class MainViewController implements Initializable {
         loadView("../gui/DepartmentNew.fxml", (DepartmentNewController controller) -> {
             controller.setDepartmentService(new DepartmentService());
             controller.updateTableView(); });
-    }
-
-    @FXML
-    public void onMenuDeleteEmployeeAction(){
-        System.out.println("Action Delete Employee");
-    }
-
-    @FXML
-    public void onMenuDeleteDepartmentAction(){
-        System.out.println("Action Delete Department");
     }
 
     @FXML

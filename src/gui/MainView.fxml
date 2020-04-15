@@ -18,12 +18,6 @@
                         <MenuItem fx:id="menuNewDepartment" mnemonicParsing="false" onAction="#onMenuNewDepartmentAction" text="Departamento" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Deletar">
-                     <items>
-                        <MenuItem fx:id="menuDeleteEmployee" mnemonicParsing="false" onAction="#onMenuDeleteEmployeeAction" text="Funcionário" />
-                        <MenuItem fx:id="menuDeleteDepartment" mnemonicParsing="false" onAction="#onMenuDeleteDepartmentAction" text="Departamento" />
-                     </items>
-                </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
                     <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuHelpAboutAction" text="Sobre" />
