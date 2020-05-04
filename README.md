@@ -33,14 +33,20 @@ Primeiramente baixar as bibliotecas e extras necessários no projeto:
 Configurar o Run. Dependendo da IDE, a configuração vai estar em um lugar diferente, mas geralmente vai ter na barra superior uma aba Run onde vc tem a opção de configurar.
 Assim que entrar nas configurações, vai ter uma parte chamada VM Arguments, dentro da caixa é so colar `--module-path <PATH> --add-modules=javafx.fxml,javafx.controls` e substituir <PATH> pelo caminho onde se encontra a biblioteca baixada.
 
-##Desenvolvimento
+## Desenvolvimento
 
 Desde o inicio de Abril, este projeto vem sendo planejado como "Projeto Final do Semestre". Ainda esta longe de acabar, mas já passou uma boa parte.
 
 -[x] Classes de acesso a dados
+
 -[x] Conexão com o banco de dados
+
 -[x] Conexão com Arduino
+
 -[x] Integração inicial da conexão Arduino e banco de dados
+
 -[ ] Implementar interface gráfica (+- 50%)
+
 -[ ] Adicionar um _listening_ para a interface
+
 -[ ] Resolver um possível problema que terei com RXTX
