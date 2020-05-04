@@ -37,16 +37,16 @@ Assim que entrar nas configurações, vai ter uma parte chamada VM Arguments, de
 
 Desde o inicio de Abril, este projeto vem sendo planejado como "Projeto Final do Semestre". Ainda esta longe de acabar, mas já passou uma boa parte.
 
--[x] Classes de acesso a dados
+- [x] Classes de acesso a dados
 
--[x] Conexão com o banco de dados
+- [x] Conexão com o banco de dados
 
--[x] Conexão com Arduino
+- [x] Conexão com Arduino
 
--[x] Integração inicial da conexão Arduino e banco de dados
+- [x] Integração inicial da conexão Arduino e banco de dados
 
--[ ] Implementar interface gráfica (+- 50%)
+- [ ] Implementar interface gráfica (+- 50%)
 
--[ ] Adicionar um _listening_ para a interface
+- [ ] Adicionar um _listening_ para a interface
 
--[ ] Resolver um possível problema que terei com RXTX
+- [ ] Resolver um possível problema que terei com RXTX
