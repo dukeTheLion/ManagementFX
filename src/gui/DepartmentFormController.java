@@ -1,6 +1,7 @@
 package gui;
 
 import datebase.DBException;
+import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Constrains;
 import gui.util.Utils;
@@ -15,12 +16,15 @@ import model.entities.Department;
 import model.services.DepartmentService;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DepartmentFormController implements Initializable {
 
     private DepartmentService service;
     private Department department;
+    private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 
     @FXML
     private TextField textId;
@@ -47,6 +51,7 @@ public class DepartmentFormController implements Initializable {
        try {
            department = getFormData();
            service.setDepartmentService(department);
+           notifyDataChangeListener();
 
            Utils.currentStage(event).close();
        } catch (DBException e) {
@@ -68,6 +73,16 @@ public class DepartmentFormController implements Initializable {
 
     public void setService(DepartmentService service) {
         this.service = service;
+    }
+
+    public void subscribeDataChangeList(DataChangeListener listener){
+        dataChangeListeners.add(listener);
+    }
+
+    private void notifyDataChangeListener(){
+        for (DataChangeListener listener : dataChangeListeners){
+            listener.onDataChanged();
+        }
     }
 
     private void initializeNodes(){

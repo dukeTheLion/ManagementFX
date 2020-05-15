@@ -17,7 +17,7 @@ public class Main extends Application {
         root.setFitToHeight(true);
         root.setFitToWidth(true);
 
-        mainScene = new Scene(root, 720, 576);
+        mainScene = new Scene(root, 1140, 720);
         primaryStage.setTitle("Management");
         primaryStage.setScene(mainScene);
         primaryStage.show();

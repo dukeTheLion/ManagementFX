@@ -9,12 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import main.Main;
-import model.entities.Department;
 import model.services.DepartmentService;
 import model.services.EmployeeService;
 

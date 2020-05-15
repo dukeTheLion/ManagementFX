@@ -16,6 +16,7 @@
     -fx-background-color: #3ABFF0;
     -fx-border-color: #CCCCCC;
     -fx-text-fill: white;
+    -fx-prompt-text-fill: #0E8AB6;
 }
 
 .button{
