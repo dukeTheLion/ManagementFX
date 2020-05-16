@@ -30,14 +30,14 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuNewEmployeeAction(){
-        loadView("../gui/EmployeeNew.fxml", (EmployeeNewController controller) -> {
+        loadView("../gui/EmployeeNewController.fxml", (EmployeeNewController controller) -> {
             controller.setEmployeeService(new EmployeeService());
             controller.updateTableView(); });
     }
 
     @FXML
     public void onMenuNewDepartmentAction(){
-        loadView("../gui/DepartmentNew.fxml", (DepartmentNewController controller) -> {
+        loadView("../gui/DepartmentNewController.fxml", (DepartmentNewController controller) -> {
             controller.setDepartmentService(new DepartmentService());
             controller.updateTableView(); });
     }

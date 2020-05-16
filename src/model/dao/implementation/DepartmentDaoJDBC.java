@@ -24,11 +24,21 @@ public class DepartmentDaoJDBC implements DepartmentDAO {
         PreparedStatement st = null;
 
         try {
-            st = conn.prepareStatement("INSERT INTO `DataBase`.`Department` "
-                    + "(DepName) "
-                    + "values (?)");
+            if (obj.getId() == null){
+                st = conn.prepareStatement("INSERT INTO `DataBase`.`Department` "
+                        + "(DepName) "
+                        + "values (?)");
 
-            st.setString(1, obj.getName());
+                st.setString(1, obj.getName());
+            } else {
+                st = conn.prepareStatement("INSERT INTO `DataBase`.`Department` "
+                        + "(`ID`, `DepName`) "
+                        + "values (?, ?)");
+
+                st.setInt(1, obj.getId());
+                st.setString(2, obj.getName());
+            }
+
 
             st.executeUpdate();
 
@@ -110,7 +120,7 @@ public class DepartmentDaoJDBC implements DepartmentDAO {
         ResultSet rs = null;
 
         try {
-            st = conn.prepareStatement("SELECT `Department`.* FROM `DataBase`.`Department`");
+            st = conn.prepareStatement("SELECT `Department`.* FROM `DataBase`.`Department` ORDER BY `id`");
             rs = st.executeQuery();
 
             List<Department> list = new ArrayList<>();

@@ -91,13 +91,7 @@ public class DepartmentNewController implements Initializable, DataChangeListene
             controller.subscribeDataChangeList(this);
             controller.updateFormData();
 
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Novo Departamento");
-            dialogStage.setScene(new Scene(pane));
-            dialogStage.setResizable(false);
-            dialogStage.initOwner(parentStage);
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.showAndWait();
+            stage (pane, parentStage);
 
         } catch (IOException e){
             Alerts.showAlert("Erro de entrada e saida",
@@ -116,13 +110,7 @@ public class DepartmentNewController implements Initializable, DataChangeListene
             controller.setService(new DepartmentService());
             controller.subscribeDataChangeList(this);
 
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Novo Departamento");
-            dialogStage.setScene(new Scene(pane));
-            dialogStage.setResizable(false);
-            dialogStage.initOwner(parentStage);
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.showAndWait();
+            stage (pane, parentStage);
 
         } catch (IOException e){
             Alerts.showAlert("Erro de entrada e saida",
@@ -130,6 +118,16 @@ public class DepartmentNewController implements Initializable, DataChangeListene
                     e.getMessage(),
                     Alert.AlertType.ERROR);
         }
+    }
+
+    private void stage (Pane pane, Stage parentStage) {
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Novo Departamento");
+        dialogStage.setScene(new Scene(pane));
+        dialogStage.setResizable(false);
+        dialogStage.initOwner(parentStage);
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.showAndWait();
     }
 
     @Override

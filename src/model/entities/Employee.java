@@ -27,6 +27,9 @@ public class Employee {
         this.department = department;
     }
 
+    public Employee () {
+
+    }
     public Long getId() {
         return id;
     }
