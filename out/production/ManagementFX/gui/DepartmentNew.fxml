@@ -7,12 +7,12 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="@DepartmentNewCSS/DepartmentNew.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DepartmentNewController">
+<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="@departmentNewCSS/DepartmentNew.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DepartmentNewController">
     <children>
-        <ToolBar prefHeight="40.0" prefWidth="200.0" stylesheets="@DepartmentNewCSS/DepartmentNew.css">
+        <ToolBar prefHeight="40.0" prefWidth="200.0" stylesheets="@departmentNewCSS/DepartmentNew.css">
             <items>
-                <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreateAction" stylesheets="@DepartmentNewCSS/DepartmentNew.css" text="Cadastrar ou Atualizar" />
-            <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#onButtonDeleteAction" stylesheets="@DepartmentNewCSS/ButtonDelete.css" text="Deletar">
+                <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreateAction" stylesheets="@departmentNewCSS/DepartmentNew.css" text="Adicionar ou Atualizar" />
+            <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#onButtonDeleteAction" stylesheets="@departmentNewCSS/ButtonDelete.css" text="Deletar">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -25,7 +25,7 @@
             <Insets bottom="12.0" left="9.0" right="9.0" top="12.0" />
          </padding>
         </ToolBar>
-        <TableView fx:id="tableViewDepartment" prefHeight="-Infinity" prefWidth="200.0" stylesheets="@DepartmentNewCSS/DepartmentNew.css">
+        <TableView fx:id="tableViewDepartment" prefHeight="-Infinity" prefWidth="200.0" stylesheets="@departmentNewCSS/DepartmentNew.css">
             <columns>
                 <TableColumn fx:id="tableColumnID" prefWidth="50.0" text="ID" />
                 <TableColumn fx:id="tableColumnName" prefWidth="150.0" text="Departamento" />

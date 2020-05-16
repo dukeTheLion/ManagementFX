@@ -13,14 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.entities.Department;
+import model.exceptions.ValidationException;
 import model.services.DepartmentService;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
-public class DepartmentFormController implements Initializable {
+public class DepartmentFormCreate implements Initializable {
 
     private DepartmentService service;
     private Department department;
@@ -54,7 +53,11 @@ public class DepartmentFormController implements Initializable {
            notifyDataChangeListener();
 
            Utils.currentStage(event).close();
-       } catch (DBException e) {
+       }
+       catch (ValidationException e) {
+           setErrorMessages(e.getErros());
+       }
+       catch (DBException e) {
            Alerts.showAlert("Erro ao salvar",
                    null,
                    e.getMessage(),
@@ -96,7 +99,24 @@ public class DepartmentFormController implements Initializable {
         textName.setText(department.getName());
     }
 
+    private void setErrorMessages(Map<String, String> errors){
+        Set<String> fields = errors.keySet();
+        if (fields.contains("name")) labelError.setText(errors.get("name"));
+    }
+
     private Department getFormData() {
-        return new Department(Utils.parseToInt(textId.getText()), textName.getText());
+        Department obj = new Department();
+        ValidationException exception = new ValidationException("error");
+
+        obj.setId(Utils.parseToInt(textId.getText()));
+
+        if (textName.getText() == null || textName.getText().trim().equals("")) {
+            exception.addErros("name", "Campo vazio!");
+        }
+        obj.setName(textName.getText());
+
+        if (exception.getErros().size() > 0) throw exception;
+
+        return obj;
     }
 }

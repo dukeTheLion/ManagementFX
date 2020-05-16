@@ -17,4 +17,8 @@ public class DepartmentService {
         if (department.getId() == null) dao.insert(department);
         else dao.update(department);
     }
+
+    public void deleteDepartmentService(Integer id){
+        dao.delete(id);
+    }
 }

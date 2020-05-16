@@ -49,12 +49,12 @@ public class DepartmentNewController implements Initializable, DataChangeListene
 
     @FXML
     public void onButtonCreateAction(ActionEvent event) {
-        createDialogForm(new Department(), "../gui/DepartmentForm.fxml", Utils.currentStage(event));
+        createDialogFormCreate(new Department(), "../gui/DepartmentFormCreate.fxml", Utils.currentStage(event));
     }
 
     @FXML
-    public void onButtonDeleteAction(){
-        System.out.print("Button");
+    public void onButtonDeleteAction(ActionEvent event){
+        createDialogFormDelete("../gui/DepartmentFormDelete.fxml", Utils.currentStage(event));
     }
 
     @Override
@@ -80,16 +80,41 @@ public class DepartmentNewController implements Initializable, DataChangeListene
         tableViewDepartment.setItems(observableList);
     }
 
-    private void createDialogForm(Department department, String path, Stage parentStage){
+    private void createDialogFormCreate(Department department, String path, Stage parentStage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Pane pane = loader.load();
 
-            DepartmentFormController controller = loader.getController();
+            DepartmentFormCreate controller = loader.getController();
             controller.setDepartment(department);
             controller.setService(new DepartmentService());
             controller.subscribeDataChangeList(this);
             controller.updateFormData();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Novo Departamento");
+            dialogStage.setScene(new Scene(pane));
+            dialogStage.setResizable(false);
+            dialogStage.initOwner(parentStage);
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.showAndWait();
+
+        } catch (IOException e){
+            Alerts.showAlert("Erro de entrada e saida",
+                    "Erro ao carregar a tela",
+                    e.getMessage(),
+                    Alert.AlertType.ERROR);
+        }
+    }
+
+    private void createDialogFormDelete(String path, Stage parentStage){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            Pane pane = loader.load();
+
+            DepartmentFormDelete controller = loader.getController();
+            controller.setService(new DepartmentService());
+            controller.subscribeDataChangeList(this);
 
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Novo Departamento");
