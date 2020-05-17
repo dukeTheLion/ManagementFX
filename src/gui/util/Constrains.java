@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
  *                  |
  *            Occurs once or
  *              not at all
+ *
+ * masks at: https://respostas.guj.com.br/49038-mascaras-de-cpfcnpj-cep-fone-e-outros-em-javafx
  */
 
 public class Constrains {

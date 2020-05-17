@@ -116,7 +116,7 @@ public class EmployeeNewController implements Initializable, DataChangeListener 
             controller.subscribeDataChangeList(this);
             controller.updateFormData();
 
-            stage (pane, parentStage);
+            stage (pane, parentStage, "Adicionar ou Atualizar");
 
         } catch (IOException e){
             Alerts.showAlert("Erro de entrada e saida",
@@ -145,9 +145,9 @@ public class EmployeeNewController implements Initializable, DataChangeListener 
         }
     }*/
 
-    private void stage (Pane pane, Stage parentStage) {
+    private void stage (Pane pane, Stage parentStage, String title) {
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Novo Departamento");
+        dialogStage.setTitle(title);
         dialogStage.setScene(new Scene(pane));
         dialogStage.setResizable(false);
         dialogStage.initOwner(parentStage);

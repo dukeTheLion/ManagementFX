@@ -1,6 +1,7 @@
 package gui;
 
 import datebase.DBException;
+import embedded.entities.CardRead;
 import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Constrains;
@@ -18,12 +19,10 @@ import model.entities.Employee;
 import model.exceptions.ValidationException;
 import model.services.EmployeeService;
 
-import javax.swing.text.MaskFormatter;
 import java.net.URL;
 import java.util.*;
 
 public class EmployeeFormCreate implements Initializable {
-    private MaskFormatter formatter;
     private EmployeeService service;
     private Employee employee;
     private Integer depID;
@@ -50,6 +49,8 @@ public class EmployeeFormCreate implements Initializable {
     private Button buttonCancel;
     @FXML
     private Button buttonCreate;
+    @FXML
+    private Button buttonCard;
 
     @FXML
     private Label labelError1;
@@ -94,6 +95,17 @@ public class EmployeeFormCreate implements Initializable {
                     Alert.AlertType.ERROR);
         }
 
+    }
+
+    @FXML
+    public void onButtonCard(ActionEvent event){
+        CardRead num = new CardRead();
+        Long cardNum = num.getCardId();
+
+        textId.setDisable(true);
+        textId.setText(String.valueOf(cardNum));
+
+        num.getConn().closeIn();
     }
 
     public void setService(EmployeeService service) {
@@ -159,16 +171,6 @@ public class EmployeeFormCreate implements Initializable {
         DepartmentDAO temp = DaoFactory.newDepartmentDAO();
         ValidationException exception = new ValidationException("error");
 
-        obj.setId(Utils.parseToLong(textId.getText()));
-        obj.setName(textName.getText());
-        obj.setLastName(textLastName.getText());
-        obj.setCPF(Utils.parseToLong(textCPF.getText()));
-        obj.setEmail(textEmail.getText());
-        obj.setSalaryHour(Utils.parseToDouble(textSalaryHour.getText()));
-        obj.setWeeklyHour(Utils.parseToInt(textWeeklyHour.getText()));
-        obj.setDepartment(temp.findById(Utils.parseToInt(textDepartmentId.getText())));
-        obj.setControlID(Utils.parseToLong(textId.getText()));
-
         if (textId.getText() == null || textId.getText().trim().equals("")) {
             exception.addErros("id", "Campo vazio!");
         }
@@ -193,6 +195,21 @@ public class EmployeeFormCreate implements Initializable {
         if (textDepartmentId.getText() == null || textDepartmentId.getText().trim().equals("")) {
             exception.addErros("dep", "Campo vazio!");
         }
+
+        obj.setId(Utils.parseToLong(textId.getText()));
+        obj.setName(textName.getText());
+        obj.setLastName(textLastName.getText());
+        obj.setCPF(Utils.parseToLong(textCPF.getText()));
+        obj.setEmail(textEmail.getText());
+        obj.setSalaryHour(Utils.parseToDouble(textSalaryHour.getText()));
+        obj.setWeeklyHour(Utils.parseToInt(textWeeklyHour.getText()));
+        try {
+            obj.setDepartment(temp.findById(Utils.parseToInt(textDepartmentId.getText())));
+        } catch (NullPointerException e){
+            obj.setDepartment(null);
+        }
+        obj.setControlID(Utils.parseToLong(textId.getText()));
+
         if (exception.getErros().size() > 0) throw exception;
 
         return obj;

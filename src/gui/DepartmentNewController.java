@@ -22,7 +22,6 @@ import main.Main;
 import model.entities.Department;
 import model.services.DepartmentService;
 
-import javax.swing.text.MaskFormatter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -92,7 +91,7 @@ public class DepartmentNewController implements Initializable, DataChangeListene
             controller.subscribeDataChangeList(this);
             controller.updateFormData();
 
-            stage (pane, parentStage);
+            stage (pane, parentStage, "Adicionar ou Atualizar");
 
         } catch (IOException e){
             Alerts.showAlert("Erro de entrada e saida",
@@ -111,7 +110,7 @@ public class DepartmentNewController implements Initializable, DataChangeListene
             controller.setService(new DepartmentService());
             controller.subscribeDataChangeList(this);
 
-            stage (pane, parentStage);
+            stage (pane, parentStage, "Deletar");
 
         } catch (IOException e){
             Alerts.showAlert("Erro de entrada e saida",
@@ -121,9 +120,9 @@ public class DepartmentNewController implements Initializable, DataChangeListene
         }
     }
 
-    private void stage (Pane pane, Stage parentStage) {
+    private void stage (Pane pane, Stage parentStage, String title) {
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Novo Departamento");
+        dialogStage.setTitle(title);
         dialogStage.setScene(new Scene(pane));
         dialogStage.setResizable(false);
         dialogStage.initOwner(parentStage);

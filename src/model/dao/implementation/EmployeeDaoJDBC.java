@@ -157,7 +157,8 @@ public class EmployeeDaoJDBC implements EmployeeDAO {
         try {
             st = conn.prepareStatement("SELECT `Employee`.*, `Department`.`DepName` "
                     + "FROM `DataBase`.`Employee` "
-                    + "INNER JOIN `DataBase`.`Department` ON `Employee`.`DepartmentID` = `Department`.`ID` ");
+                    + "INNER JOIN `DataBase`.`Department` ON `Employee`.`DepartmentID` = `Department`.`ID` "
+                    + "ORDER BY `Name`");
 
             rs = st.executeQuery();
 

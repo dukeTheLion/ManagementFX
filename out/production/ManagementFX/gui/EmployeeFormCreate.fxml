@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="550.0" prefWidth="600.0" stylesheets="@employeeFormCSS/EmployeeCreate.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EmployeeFormCreate">
    <children>
       <GridPane layoutX="127.0" layoutY="137.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
@@ -146,7 +145,6 @@
                   <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#onButtonCreate" stylesheets="@employeeFormCSS/EmployeeCreateAddButton.css" text="Adicionar ou Atualizar" />
                </children>
             </HBox>
-            <TextField fx:id="textId" stylesheets="@employeeFormCSS/EmployeeCreate.css" GridPane.columnIndex="1" />
             <TextField fx:id="textName" stylesheets="@employeeFormCSS/EmployeeCreate.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="textLastName" stylesheets="@employeeFormCSS/EmployeeCreate.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="textCPF" stylesheets="@employeeFormCSS/EmployeeCreate.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -154,6 +152,19 @@
             <TextField fx:id="textSalaryHour" stylesheets="@employeeFormCSS/EmployeeCreate.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="textWeeklyHour" stylesheets="@employeeFormCSS/EmployeeCreate.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField fx:id="textDepartmentId" stylesheets="@employeeFormCSS/EmployeeCreate.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="textId" prefHeight="29.0" prefWidth="175.0" stylesheets="@employeeFormCSS/EmployeeCreate.css">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets right="12.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="buttonCard" mnemonicParsing="false" onAction="#onButtonCard" prefHeight="29.0" prefWidth="95.0" stylesheets="@employeeFormCSS/EmployeeCardButton.css" text="Cartão" />
+               </children>
+            </HBox>
          </children>
       </GridPane>
    </children>

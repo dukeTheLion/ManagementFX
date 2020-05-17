@@ -49,4 +49,4 @@ Desde o inicio de Abril, este projeto vem sendo planejado como "Projeto Final do
 
 - [ ] Adicionar um _listening_ para a interface
 
-- [ ] Resolver um possível problema que terei com RXTX
+- [ ] Resolver um possível problema que terei com RXTX <<<
