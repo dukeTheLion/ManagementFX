@@ -18,12 +18,15 @@ import model.entities.Employee;
 import model.exceptions.ValidationException;
 import model.services.EmployeeService;
 
+import javax.swing.text.MaskFormatter;
 import java.net.URL;
 import java.util.*;
 
 public class EmployeeFormCreate implements Initializable {
+    private MaskFormatter formatter;
     private EmployeeService service;
     private Employee employee;
+    private Integer depID;
     private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 
     @FXML
@@ -120,8 +123,7 @@ public class EmployeeFormCreate implements Initializable {
         textEmail.setText(employee.getEmail());
         textSalaryHour.setText(String.valueOf(employee.getSalaryHour()));
         textWeeklyHour.setText(String.valueOf(employee.getWeeklyHour()));
-        int temp = employee.getDepartment().getId();
-        textDepartmentId.setText(String.valueOf(temp));
+        textDepartmentId.setText(String.valueOf(depID));
     }
 
     @Override
@@ -130,10 +132,10 @@ public class EmployeeFormCreate implements Initializable {
     }
 
     private void initializeNodes(){
-        Constrains.setFiledLong(textId);
+        Constrains.setFiledInteger(textId);
         Constrains.setMaxLength(textName, 10);
         Constrains.setMaxLength(textLastName, 30);
-        Constrains.setFiledLong(textCPF);
+        Constrains.setFiledCPF(textCPF);
         Constrains.setMaxLength(textEmail, 50);
         Constrains.setFiledFloat(textSalaryHour);
         Constrains.setFiledInteger(textWeeklyHour);
