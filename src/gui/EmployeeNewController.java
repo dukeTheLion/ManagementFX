@@ -71,8 +71,8 @@ public class EmployeeNewController implements Initializable, DataChangeListener 
     }
 
     @FXML
-    public void onButtonDeleteAction(){
-        System.out.print("Button");
+    public void onButtonDeleteAction(ActionEvent event){
+        createDialogFormDelete("../gui/EmployeeFormDelete.fxml", Utils.currentStage(event));
     }
 
     @Override
@@ -126,7 +126,7 @@ public class EmployeeNewController implements Initializable, DataChangeListener 
         }
     }
 
-    /*private void createDialogFormDelete(String path, Stage parentStage){
+    private void createDialogFormDelete(String path, Stage parentStage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
             Pane pane = loader.load();
@@ -135,7 +135,7 @@ public class EmployeeNewController implements Initializable, DataChangeListener 
             controller.setService(new EmployeeService());
             controller.subscribeDataChangeList(this);
 
-            stage (pane, parentStage);
+            stage (pane, parentStage, "Deletar");
 
         } catch (IOException e){
             Alerts.showAlert("Erro de entrada e saida",
@@ -143,7 +143,7 @@ public class EmployeeNewController implements Initializable, DataChangeListener 
                     e.getMessage(),
                     Alert.AlertType.ERROR);
         }
-    }*/
+    }
 
     private void stage (Pane pane, Stage parentStage, String title) {
         Stage dialogStage = new Stage();

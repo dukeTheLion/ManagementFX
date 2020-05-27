@@ -25,4 +25,8 @@ public class EmployeeService {
         else dao.update(employee);
 
     }
+
+    public void deleteEmployeeService(Long id){
+        dao.delete(id);
+    }
 }

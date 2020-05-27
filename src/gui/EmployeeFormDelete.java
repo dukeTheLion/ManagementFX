@@ -1,22 +1,22 @@
 package gui;
 
-import datebase.DBException;
-import gui.listeners.DataChangeListener;
-import gui.util.Alerts;
-import gui.util.Constrains;
-import gui.util.Utils;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import model.exceptions.ValidationException;
-import model.services.DepartmentService;
+        import datebase.DBException;
+        import gui.listeners.DataChangeListener;
+        import gui.util.Alerts;
+        import gui.util.Constrains;
+        import gui.util.Utils;
+        import javafx.event.ActionEvent;
+        import javafx.fxml.FXML;
+        import javafx.fxml.Initializable;
+        import javafx.scene.control.*;
+        import model.exceptions.ValidationException;
+        import model.services.EmployeeService;
 
-import java.net.URL;
-import java.util.*;
+        import java.net.URL;
+        import java.util.*;
 
-public class DepartmentFormDelete implements Initializable {
-    private DepartmentService service;
+public class EmployeeFormDelete implements Initializable {
+    private EmployeeService service;
     private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 
     @FXML
@@ -30,7 +30,7 @@ public class DepartmentFormDelete implements Initializable {
     @FXML
     private Label labelError;
 
-    public void setService (DepartmentService service){
+    public void setService (EmployeeService service){
         this.service = service;
     }
 
@@ -39,7 +39,7 @@ public class DepartmentFormDelete implements Initializable {
         try {
             validationException();
 
-            service.deleteDepartmentService(Utils.parseToInt(text.getText()));
+            service.deleteEmployeeService(Utils.parseToLong(text.getText()));
             notifyDataChangeListener();
 
             Utils.currentStage(event).close();
@@ -53,7 +53,6 @@ public class DepartmentFormDelete implements Initializable {
                     e.getMessage(),
                     Alert.AlertType.ERROR);
         }
-
     }
 
     public void subscribeDataChangeList(DataChangeListener listener){
